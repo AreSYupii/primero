@@ -11,7 +11,7 @@ def goodbyemsg(update, context): #ADIÓS
 
         # TOKEN
 if __name__ == '__main__':
-    token = '5137514809:AAG5kwNfFaaMXmCCyBXkWO_z0Ra8ZjVNVZA'
+    token = os.environ['TOKEN']
     bot = telegram.Bot(token=token)
     updater = Updater(token=token, use_context=True)
 
