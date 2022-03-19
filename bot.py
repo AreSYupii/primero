@@ -18,11 +18,13 @@ def banear(update, context):
     fromname=update.message.reply_to_message.from_user.first_name
     chatid=update.message.chat.id
     userid=update.effective_user.id
-    bot=context.bot
-    bot.getChatMember(chat_id=chatid, user_id=userid)
-    
-    bot.banChatMember(chat_id=fromchatid, user_id=fromuserid)
-    bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
+    if (update.effective_user.id):
+        if (update.effective_user.id == 1307228755):
+            context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
+        if (update.effective_user.id != 1307228755):
+            context.bot.sendMessage(chat_id=update.message.chat.id, text="NO ESTÁS AUTORIZADO")
+    else:
+        context.bot.sendMessage(chat_id=update.message.chat.id, text="NO ESTÁS AUTORIZADO")
 def desbanear(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
