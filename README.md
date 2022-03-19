@@ -10,15 +10,20 @@ BOT DE TELEGRAM PARA DAR SOPORTE**
 
 # >INTEGRACIONES :
 <details><summary>Función de Respuesta para el Comando /start</summary><p>
-  </details> 
+Al mandar /start se ejecuta la Función start_handler que te mandará un mensaje con unos botones que llevarán a el canal @Python_Insights 🐍 y al Chat @Python_Ideas_Community 💬.
+</details> </p>
 <details><summary>Mensaje de Bienvenida Automatizado para Usuarios que entren al Chat
-  </details> 
+Este comando estará filtrando por nuevos miembros, y al unirse alguien se ejecutaría la función welcomemsg.
+</details> </p>
 <details><summary>Mensaje de Despedida Automatizado para Usuarios que salgan del Chat
-  </details> 
+Este comando estará filtrando por miembros que salgan o sean expulsados, y al salir alguien se ejecutaría la función goodbyemsg.
+</details> </p>
 <details><summary>Comando /ban (Expulsar Usuario y no lo Permite volver al Chat)
-  </details> 
+Al ejecutar el comando /ban haciendole reply a un mensaje tomará el ID y el CHAT de ese Usuario, y luego lo Expulsará del Chat evitando que pueda volver a entrar a no ser que sea desbaneado.
+</details> </p>
 <details><summary>Comando /unban (Permite a un Usuario Expulsado volver al Chat)
-  </details> 
+Al ejecutar el comando /unban haciendole reply a un mensaje tomará el ID y el CHAT de ese Usuario, y luego le permitirá entrar denuevo al Chat, anulando su baneo.
+</details> </p>
 
   
 ###### Desde aquí tomará el Token para Hacer Funcionar al Bot :
