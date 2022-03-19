@@ -7,3 +7,4 @@
 5. Comando /unban (Permite a un Usuario Expulsado volver al Chat)
 6. Comando /pin (Anclar un Mensaje al que se le haga reply)
 7. Comando /unpin (Desanclar un Mensaje al que se le haga reply)
+8. Comando /yinfo (Te da el ID del Usuario y del Chat al que se le haga reply, y tu usuario)
