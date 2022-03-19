@@ -11,7 +11,25 @@ def welcomemsg(update, context):
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Python Insights 🐍", url="t.me/Python_Insights"), InlineKeyboardButton(text="🐍 Python Ideas Community", url="t.me/Python_Ideas_Community")],[InlineKeyboardButton(text="[SUPPORT] Python Ideas", url="t.me/PythonIdeasSupport_bot"), InlineKeyboardButton(text="🤖 🅻🅾️🅶 DE BOTS", url="t.me/Rregistro_De_Bots_AresDza")]]))
 def goodbyemsg(update, context):
     update.message.reply_text(text=f"{update.effective_user.first_name} se ha marchado, 👋🏻 adiós Compañer@")
-
+def banear(update, context):
+    fromchatid=update.message.reply_to_message.chat.id
+    fromuserid=update.message.reply_to_message.from_user.id
+    chatid=update.message.chat.id
+    userid=update.effective_user.id
+    bot=context.bot
+    bot.getChatMember(chat_id=chatid, user_id=userid)
+    if ((ChatMemberOwner.status == True), (ChatMemberAdministrator.status == True)):
+        bot.banChatMember(chat_id=fromchatid, user_id=fromuserid)
+def desbanear(update, context):
+    fromchatid=update.message.reply_to_message.chat.id
+    fromuserid=update.message.reply_to_message.from_user.id
+    bot=context.bot
+    chatid=update.message.chat.id
+    userid=update.effective_user.id
+    bot.getChatMember(chat_id=chatid, user_id=userid)
+    if ((ChatMemberOwner.status == True), (ChatMemberAdministrator.status == True)):
+        bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid)
+    
         # TOKEN
 if __name__ == '__main__':
     token = os.environ['TOKEN']
@@ -23,6 +41,8 @@ if __name__ == '__main__':
     dp.add_handler(CommandHandler('start', start_handler))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, welcomemsg))
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, goodbyemsg))
+    dp.add_handler(CommandHandler("ban", banear))
+    dp.add_handler(CommandHandler("unban", desbanear))
     
     # Para Ejecutar el Bot
     updater.start_polling()
