@@ -4,10 +4,12 @@
 
 
 🤖BOT DE SOPORTE PARA :
-[@Python_Insights 🐍](https://t.me/Python_Insights)
-https://t.me/Python_Ideas_Community 💬
 
-👨‍💻Bot Creado por : @AresDza
+[@Python_Insights 🐍](https://t.me/Python_Insights)
+
+[@Python_Ideas_Community 💬](https://t.me/Python_Ideas_Community)
+
+👨‍💻Bot Creado por : [AresDza Developer 👾](https://t.me/AresDza)
 
 **CREADO 100% Python 3.10.3
 BOT DE TELEGRAM PARA DAR SOPORTE**
