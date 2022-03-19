@@ -38,13 +38,13 @@ def anclar(update, context):
         if (update.message.reply_to_message != exists):
             context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
     else:
-        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando /anclar Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando /pin Sólo funciona cuando le Respondes a un Mensaje 🔄")
 def desanclar(update, context):
     if (update.message.reply_to_message):
         if (update.message.reply_to_message != exists):
             context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
     else:
-        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando /desanclar Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando /unpin Sólo funciona cuando le Respondes a un Mensaje 🔄")
 
         # TOKEN
 if __name__ == '__main__':
