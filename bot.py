@@ -22,20 +22,22 @@ def banear(update, context):
         if (update.effective_user.id == 1307228755):
             context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
         if (update.effective_user.id != 1307228755):
-            context.bot.sendMessage(chat_id=update.message.chat.id, text="NO ESTÁS AUTORIZADO")
+            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
     else:
-        context.bot.sendMessage(chat_id=update.message.chat.id, text="NO ESTÁS AUTORIZADO")
+        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def desbanear(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
     fromname=update.message.reply_to_message.from_user.first_name
-    bot=context.bot
     chatid=update.message.chat.id
     userid=update.effective_user.id
-    bot.getChatMember(chat_id=chatid, user_id=userid)
-    
-    bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid)
-    bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
+    if (update.effective_user.id):
+        if (update.effective_user.id == 1307228755):
+            context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
+        if (update.effective_user.id != 1307228755):
+            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
+    else:
+        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def anclar(update, context):
     if (update.message.reply_to_message):
         if (update.message.reply_to_message != exists):
