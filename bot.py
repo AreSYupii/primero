@@ -52,8 +52,6 @@ def anclar(update, context):
                     context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
             else:
                 context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
-        else:
-            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def desanclar(update, context):
     if (update.effective_user.id):
         if (update.effective_user.id == 1307228755):
@@ -68,8 +66,6 @@ def desanclar(update, context):
                     context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
             else:
                 context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
-        else:
-            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def yinfo(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
