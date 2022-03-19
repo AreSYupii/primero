@@ -33,7 +33,13 @@ def desbanear(update, context):
     
     bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid)
     bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
-    
+def anclar(update, context):
+    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id)
+    context.bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+def desanclar(update, context):
+    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id)
+    context.bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+
         # TOKEN
 if __name__ == '__main__':
     token = os.environ['TOKEN']
@@ -47,6 +53,8 @@ if __name__ == '__main__':
     dp.add_handler(MessageHandler(Filters.status_update.left_chat_member, goodbyemsg))
     dp.add_handler(CommandHandler("ban", banear))
     dp.add_handler(CommandHandler("unban", desbanear))
+    dp.add_handler(CommandHandler('pin', anclar))
+    dp.add_handler(CommandHandler('unpin', desanclar))
     
     # Para Ejecutar el Bot
     updater.start_polling()
