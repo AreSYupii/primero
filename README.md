@@ -13,7 +13,7 @@ https://t.me/Python_Ideas_Community 💬
 BOT DE TELEGRAM PARA DAR SOPORTE**
 
 # >INTEGRACIONES :
-1. Función de Respuesta para el Comando /start[^1]
+1. Función de Respuesta para el Comando /start[^1] #5
 2. Mensaje de Bienvenida Automatizado para Usuarios que entren al Chat[^2]
 3. Mensaje de Despedida Automatizado para Usuarios que salgan del Chat[^3]
 4. Comando /ban (Expulsar Usuario y no lo Permite volver al Chat)[^4]
