@@ -5,8 +5,8 @@
 
 👨‍💻Bot Creado por : @AresDza
 
-" CREADO 100% Python 3.10.3 "
-" BOT DE TELEGRAM PARA DAR SOPORTE "
+$ CREADO 100% Python 3.10.3 $
+% BOT DE TELEGRAM PARA DAR SOPORTE %
 
 # INTEGRACIONES :
 * 1 - Función de Respuesta para el Comando /start
