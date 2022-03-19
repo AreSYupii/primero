@@ -39,17 +39,35 @@ def desbanear(update, context):
     else:
         context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def anclar(update, context):
-    if (update.message.reply_to_message):
-        if (update.message.reply_to_message != exists):
-            context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+    if (update.effective_user.id):
+        if (update.effective_user.id == 1307228755):
+            if (update.message.reply_to_message):
+                if (update.message.reply_to_message != exists):
+                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+            else:
+                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        if (update.effective_user.id != 1307228755):
+            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
     else:
-        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
 def desanclar(update, context):
-    if (update.message.reply_to_message):
-        if (update.message.reply_to_message != exists):
-            context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+    if (update.effective_user.id):
+        if (update.effective_user.id == 1307228755):
+            if (update.message.reply_to_message):
+                if (update.message.reply_to_message != exists):
+                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+            else:
+                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        if (update.effective_user.id != 1307228755):
+            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
     else:
-        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
+def yinfo(update, context):
+    fromchatid=update.message.reply_to_message.chat.id
+    fromuserid=update.message.reply_to_message.from_user.id
+    userid=update.effective_user.id
+    context.bot.sendMessage(chat_id=fromchatid, parse_mode="HTML", text=f"<b>USER_ID :</b> <pre>{fromuserid}</pre>\n<b>CHAT_ID :</b> <pre>{fromchatid}</pre>\n<b>MI_ID :</b> <pre>{userid}</pre>")
+    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id)
 
         # TOKEN
 if __name__ == '__main__':
@@ -66,6 +84,7 @@ if __name__ == '__main__':
     dp.add_handler(CommandHandler("unban", desbanear))
     dp.add_handler(CommandHandler("pin", anclar))
     dp.add_handler(CommandHandler("unpin", desanclar))
+    dp.add_handler(CommandHandler("yinfo", yinfo))
     
     # Para Ejecutar el Bot
     updater.start_polling()
