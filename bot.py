@@ -21,10 +21,8 @@ def banear(update, context):
     if (update.effective_user.id):
         if (update.effective_user.id == 1307228755):
             context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
-        if (update.effective_user.id != 1307228755):
-            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
-    else:
-        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
+        if (update.effective_user.id == 1087968824):
+            context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
 def desbanear(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
@@ -34,10 +32,8 @@ def desbanear(update, context):
     if (update.effective_user.id):
         if (update.effective_user.id == 1307228755):
             context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
-        if (update.effective_user.id != 1307228755):
-            context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
-    else:
-        context.bot.sendMessage(chat_id=update.message.chat.id, parse_mode="HTML", text="🤨 No eres Nadie para Darme <b>órdenes</b>")
+        if (update.effective_user.id == 1087968824):
+            context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
 def anclar(update, context):
     if (update.effective_user.id):
         if (update.effective_user.id == 1307228755):
