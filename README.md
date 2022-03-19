@@ -1,4 +1,8 @@
 # [SUPPORT] Python Ideas
+![photo_2022-03-16_21-21-11](https://user-images.githubusercontent.com/101855063/159123528-b4a91112-03c7-4dca-9573-60a91dcff332.jpg)
+
+
+
 🤖BOT DE SOPORTE PARA :
 @Python_Insights 🐍
 @Python_Ideas_Community 💬
