@@ -20,6 +20,7 @@ BOT DE TELEGRAM PARA DAR SOPORTE**
 5. Comando /unban (Permite a un Usuario Expulsado volver al Chat)[^5]
 6. Comando /pin (Anclar un Mensaje al que se le haga reply)[^6]
 7. Comando /unpin (Desanclar un Mensaje al que se le haga reply)[^7]
+8. Comando /yinfo (Te da el ID del Usuario y del Chat al que se le haga reply, y tu usuario)[^8]
   
 ###### Desde aquí tomará el Token para Hacer Funcionar al Bot :
 ```ruby
@@ -46,3 +47,4 @@ if __name__ == '__main__':
 [^5]:Al ejecutar el comando /unban haciendole reply a un mensaje tomará el ID y el CHAT de ese Usuario, y luego le permitirá entrar denuevo al Chat, anulando su baneo.
 [^6]:Al ejecutar el comando /pin haciendole reply a un mensaje tomará el ID del mensaje y el ID del chat, lo anclará a en el chat y eliminará el mensaje desde el que se ejecutó el comando.
 [^7]:Al ejecutar el comando /unpin haciendole reply a un mensaje tomará el ID del mensaje y el ID del chat, lo desanclará del chat y eliminará el mensaje desde el que se ejecutó el comando.
+[^8]:Al ejecutar el comando /yinfo te dirá el ID de usuario , el Chat y tu ID cuando le hagas reply a un mensaje.
