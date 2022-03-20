@@ -4,6 +4,8 @@ import os
 from telegram import *
 from telegram.ext import *
 
+autorizados = [1307228755, 1087968824]
+
 def start_handler(update, context):
     update.message.reply_text(parse_mode="HTML", text=f"🚀 Gracias por Iniciarme <b>@{update.effective_user.username}</b>\nSoy un Bot para dar Soporte en :\n<b>Python Insights 🐍</b>\n<b>🐍 Python Ideas Community</b>\n👨‍💻Bot Creado por : @AresDza\nCon - <pre>Python Telegram Bot</pre>".replace("🚀 Gracias por Iniciarme <b>@None</b>", f"🚀 Gracias por Iniciarme <b>{update.effective_user.first_name}</b>").replace("🚀 Gracias por Iniciarme <b>@AresDza</b>", "✨Bienvenido de Nuevo <b>Jefe</b>"),
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Python Insights 🐍", url="t.me/Python_Insights")], [InlineKeyboardButton(text="🐍 Python Ideas Community", url="t.me/Python_Ideas_Community")]]))
@@ -12,56 +14,43 @@ def welcomemsg(update, context):
          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Python Insights 🐍", url="t.me/Python_Insights"), InlineKeyboardButton(text="🐍 Python Ideas Community", url="t.me/Python_Ideas_Community")],[InlineKeyboardButton(text="[SUPPORT] Python Ideas", url="t.me/PythonIdeasSupport_bot"), InlineKeyboardButton(text="🤖 🅻🅾️🅶 DE BOTS", url="t.me/Rregistro_De_Bots_AresDza")]]))
 def goodbyemsg(update, context):
     update.message.reply_text(text=f"{update.effective_user.first_name} se ha marchado, 👋🏻 adiós Compañer@".replace("[SUPPORT] Python Ideas se ha marchado, 👋🏻 adiós Compañer@", "Expulsado por mala influencia 😐👌"))
+
 def banear(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
     fromname=update.message.reply_to_message.from_user.first_name
-    chatid=update.message.chat.id
-    userid=update.effective_user.id
-    if (update.effective_user.id):
-        if (update.effective_user.id == 1307228755):
-            context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
-        if (update.effective_user.id == 1087968824):
-            context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
+    if update.effective_user.id in autorizados:
+        context.bot.banChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} ha sido Baneado Indefinidamente.")
+    else:
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text=f"{update.effective_user.first_name} No tienes acceso a ese comando !!\nHabla con @AresDza para que te incluya.")
 def desbanear(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
     fromname=update.message.reply_to_message.from_user.first_name
-    chatid=update.message.chat.id
-    userid=update.effective_user.id
-    if (update.effective_user.id):
-        if (update.effective_user.id == 1307228755):
-            context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
-        if (update.effective_user.id == 1087968824):
-            context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
+    if update.effective_user.id in autorizados:
+        context.bot.unbanChatMember(chat_id=fromchatid, user_id=fromuserid), bot.sendMessage(chat_id=fromchatid, text=f"{fromname} Ya puede entrar denuevo al Chat.")
+    else:
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text=f"{update.effective_user.first_name} No tienes acceso a ese comando !!\nHabla con @AresDza para que te incluya.")
+
 def anclar(update, context):
-    if (update.effective_user.id):
-        if (update.effective_user.id == 1307228755):
-            if (update.message.reply_to_message):
-                if (update.message.reply_to_message != exists):
-                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
-            else:
+    if update.effective_user.id in autorizados:
+        if (update.message.reply_to_message):
+            if (update.message.reply_to_message != exists):
+                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+        else:
                 context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
-        if (update.effective_user.id == 1087968824):
-            if (update.message.reply_to_message):
-                if (update.message.reply_to_message != exists):
-                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.pinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
-            else:
-                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+    else :
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text=f"{update.effective_user.first_name} No tienes acceso a ese comando !!\nHabla con @AresDza para que te incluya.")
 def desanclar(update, context):
-    if (update.effective_user.id):
-        if (update.effective_user.id == 1307228755):
-            if (update.message.reply_to_message):
-                if (update.message.reply_to_message != exists):
-                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
-            else:
+    if update.effective_user.id in autorizados:
+        if (update.message.reply_to_message):
+            if (update.message.reply_to_message != exists):
+                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
+        else:
                 context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
-        if (update.effective_user.id == 1087968824):
-            if (update.message.reply_to_message):
-                if (update.message.reply_to_message != exists):
-                    context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.unpinChatMessage(chat_id=update.message.chat.id, message_id=update.message.reply_to_message.message_id)
-            else:
-                context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text="El Comando Sólo funciona cuando le Respondes a un Mensaje 🔄")
+    else:
+        context.bot.deleteMessage(chat_id=update.message.chat.id, message_id=update.message.message_id), bot.sendMessage(chat_id=update.message.chat.id ,text=f"{update.effective_user.first_name} No tienes acceso a ese comando !!\nHabla con @AresDza para que te incluya.")
+
 def yinfo(update, context):
     fromchatid=update.message.reply_to_message.chat.id
     fromuserid=update.message.reply_to_message.from_user.id
